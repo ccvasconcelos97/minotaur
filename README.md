@@ -39,7 +39,7 @@ mv ~/.cache/nvim{,.bak}
 
 Clone this configuration:
 ```shell
-git clone git@github.com:ccvasconcelos97/minotaur.git ~/.config/nvim
+git clone https://github.com/ccvasconcelos97/minotaur.git ~/.config/nvim
 ```
 
 
