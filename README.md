@@ -21,3 +21,30 @@
                                       `:         : .::/
           ;                            ;;+_  :::. :..;;;
                                       ;;;;;;,;;;;;;;;,;
+
+## Installation
+
+Make a backup of your current Neovim files:
+
+```shell
+mv ~/.config/nvim{,.bak}
+```
+
+Optional but recommended:
+```shell
+mv ~/.local/share/nvim{,.bak}
+mv ~/.local/state/nvim{,.bak}
+mv ~/.cache/nvim{,.bak}
+```
+
+Clone this configuration:
+```shell
+git clone git@github.com:ccvasconcelos97/minotaur.git ~/.config/nvim
+```
+
+
+Start coding
+
+```shell
+nvim
+```
