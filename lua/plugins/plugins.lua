@@ -5,6 +5,7 @@ return {
     "nvim-neo-tree/neo-tree.nvim",
     opts = {
       filesystem = {
+        bind_to_cwd = true,
         filtered_items = {
           visible = true,
         },
@@ -121,11 +122,12 @@ return {
       dashboard.section.header.val = vim.split(logo, "\n")
       -- stylua: ignore
       dashboard.section.buttons.val = {
-        dashboard.button("n", " " .. " New file",        "<cmd> ene <BAR> startinsert <cr>"),
-        dashboard.button("c", " " .. " Config",          "<cmd> lua require('lazyvim.util').telescope.config_files()() <cr>"),
-        dashboard.button("x", " " .. " Lazy Extras",     "<cmd> LazyExtras <cr>"),
-        dashboard.button("l", "󰒲 " .. " Lazy",            "<cmd> Lazy <cr>"),
-        dashboard.button("q", " " .. " Quit",            "<cmd> qa <cr>"),
+        dashboard.button("1", " " .. " profile-backend", "<cmd> cd ~/Developer/profile-backend <cr><cmd> Neotree <cr>"),
+        dashboard.button("2", " " .. " profile-modules", "<cmd> cd ~/Developer/profile-modules <cr><cmd> Neotree <cr>"),
+        dashboard.button("3", " " .. " new-work-one",    "<cmd> cd ~/Developer/xing-one <cr><cmd> Neotree <cr>"),
+        dashboard.button("4", " " .. " Lazy Extras",     "<cmd> LazyExtras <cr>"),
+        dashboard.button("5", "󰒲 " .. " Lazy",            "<cmd> Lazy <cr>"),
+        dashboard.button("6", " " .. " Quit",            "<cmd> qa <cr>"),
       }
       for _, button in ipairs(dashboard.section.buttons.val) do
         button.opts.hl = "AlphaButtons"

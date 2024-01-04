@@ -10,3 +10,5 @@ vim.opt.swapfile = false
 
 -- Stop formating files when saving
 vim.g.autoformat = false
+
+vim.g.root_spec = { "cwd" }
