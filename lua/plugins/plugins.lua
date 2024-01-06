@@ -27,6 +27,12 @@ return {
     lazy = false,
   },
 
+  -- Just in case I run into some hex color codes
+  {
+    "norcalli/nvim-colorizer.lua",
+    lazy = false,
+  },
+
   -- For my delete buffer keymap
   {
     "famiu/bufdelete.nvim",
@@ -97,7 +103,7 @@ return {
     },
   },
 
-  -- My cool dashboard
+  -- My cool minotaur alpha
   {
     "goolord/alpha-nvim",
     lazy = false,
@@ -128,23 +134,26 @@ return {
       ]]
 
       dashboard.section.header.val = vim.split(logo, "\n")
+
+      -- other cool emojis I could use: 📦📓📔📕📗📘📙🗂️
       -- stylua: ignore
       dashboard.section.buttons.val = {
-        dashboard.button("1", " " .. " profile-backend", "<cmd> cd ~/Developer/profile-backend <cr><cmd> Neotree <cr>"),
-        dashboard.button("2", " " .. " profile-modules", "<cmd> cd ~/Developer/profile-modules <cr><cmd> Neotree <cr>"),
-        dashboard.button("3", " " .. " new-work-one",    "<cmd> cd ~/Developer/xing-one <cr><cmd> Neotree <cr>"),
-        dashboard.button("c", " " .. " nvim config",     "<cmd> cd ~/.config/nvim/lua <cr><cmd> Neotree <cr>"),
-        dashboard.button("l", "󰒲 " .. " Lazy",            "<cmd> Lazy <cr>"),
-        dashboard.button("q", " " .. " Quit",            "<cmd> qa <cr>"),
+        dashboard.button("1", "📦" .. " profile-backend", "<cmd> cd ~/Developer/profile-backend <cr><cmd> Neotree <cr>"),
+        dashboard.button("2", "📦" .. " profile-modules", "<cmd> cd ~/Developer/profile-modules <cr><cmd> Neotree <cr>"),
+        dashboard.button("3", "📦" .. " new-work-one",    "<cmd> cd ~/Developer/xing-one <cr><cmd> Neotree <cr>"),
+        dashboard.button("c", "⚙️ " .. " nvim config",     "<cmd> cd ~/.config/nvim/lua <cr><cmd> Neotree <cr>"),
+        dashboard.button("l", "💤" .. " Lazy",            "<cmd> Lazy <cr>"),
+        dashboard.button("q", "👋" .. " Quit",            "<cmd> qa <cr>"),
       }
       for _, button in ipairs(dashboard.section.buttons.val) do
         button.opts.hl = "AlphaButtons"
         button.opts.hl_shortcut = "AlphaShortcut"
       end
-      dashboard.section.header.opts.hl = "AlphaHeader"
+      -- dashboard.section.header.opts.hl = "AlphaHeader"
+      dashboard.section.header.opts.hl = "Constant"
       dashboard.section.buttons.opts.hl = "AlphaButtons"
       dashboard.section.footer.opts.hl = "AlphaFooter"
-      dashboard.opts.layout[1].val = 5
+      -- dashboard.opts.layout[1].val = 5
       return dashboard
     end,
   },
