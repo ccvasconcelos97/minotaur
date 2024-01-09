@@ -21,6 +21,35 @@ return {
     },
   },
 
+  -- Treesitter
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = function(_, opts)
+      vim.list_extend(opts.ensure_installed, {
+        "graphql",
+      })
+    end,
+  },
+
+  -- Blocks
+  -- {
+  --   "HampusHauffman/block.nvim",
+  --   config = function()
+  --     require("block").setup({
+  --       percent = 0.8,
+  --       depth = 4,
+  --       colors = nil,
+  --       automatic = true,
+  --     })
+  --   end,
+  -- },
+
+  -- For fun
+  {
+    "eandrju/cellular-automaton.nvim",
+    lazy = false,
+  },
+
   -- For <leader>/ mapping to toggle comments
   {
     "numToStr/Comment.nvim",
