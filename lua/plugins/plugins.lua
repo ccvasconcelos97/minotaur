@@ -168,8 +168,9 @@ return {
       -- stylua: ignore
       dashboard.section.buttons.val = {
         dashboard.button("1", "📦" .. " profile-backend", "<cmd> cd ~/Developer/profile-backend <cr><cmd> Neotree <cr>"),
-        dashboard.button("2", "📦" .. " profile-modules", "<cmd> cd ~/Developer/profile-modules <cr><cmd> Neotree <cr>"),
-        dashboard.button("3", "📦" .. " new-work-one",    "<cmd> cd ~/Developer/xing-one <cr><cmd> Neotree <cr>"),
+        dashboard.button("2", "📦" .. " job-preferences-backend", "<cmd> cd ~/Developer/job-preferences-backend <cr><cmd> Neotree <cr>"),
+        dashboard.button("3", "📦" .. " profile-modules", "<cmd> cd ~/Developer/profile-modules <cr><cmd> Neotree <cr>"),
+        dashboard.button("4", "📦" .. " new-work-one",    "<cmd> cd ~/Developer/xing-one <cr><cmd> Neotree <cr>"),
         dashboard.button("c", "⚙️ " .. " nvim config",     "<cmd> cd ~/.config/nvim/lua <cr><cmd> Neotree <cr>"),
         dashboard.button("l", "💤" .. " Lazy",            "<cmd> Lazy <cr>"),
         dashboard.button("q", "👋" .. " Quit",            "<cmd> qa <cr>"),

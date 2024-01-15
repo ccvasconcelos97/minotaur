@@ -53,3 +53,17 @@ vim.keymap.set("n", "<leader>fw", "<cmd> Telescope live_grep <CR>", { desc = "Li
 
 -- Fun trick
 vim.keymap.set("n", "<leader>m", "<cmd>CellularAutomaton make_it_rain<CR>", { desc = "Make it rain" })
+
+-- Telescope copy
+vim.keymap.set('v', '<leader>y', function()
+  vim.api.nvim_input('y')
+  vim.api.nvim_input('<cmd> Telescope live_grep <CR>')
+  vim.api.nvim_input('<c-r>')
+  vim.api.nvim_input('0')
+end, { desc = 'Telescope yank' })
+
+vim.keymap.set('n', '<leader>y', function()
+  vim.api.nvim_input('<cmd> Telescope live_grep <CR>')
+  vim.api.nvim_input('<c-r>')
+  vim.api.nvim_input('0')
+end, { desc = 'Telescope yank' })
