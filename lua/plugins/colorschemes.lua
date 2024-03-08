@@ -1,8 +1,8 @@
 return {
   { "NTBBloodbath/doom-one.nvim" },
-  { "ellisonleao/gruvbox.nvim" },
-  { "catppuccin/nvim", name = "catppuccin" },
-  { "nyoom-engineering/nyoom.nvim" },
+  -- { "ellisonleao/gruvbox.nvim" },
+  -- { "catppuccin/nvim", name = "catppuccin" },
+  -- { "nyoom-engineering/nyoom.nvim" },
 
   -- Default colorscheme
   {

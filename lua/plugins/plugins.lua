@@ -31,6 +31,14 @@ return {
     end,
   },
 
+  -- Copilot
+  {
+    "zbirenbaum/copilot.lua",
+    opts = {
+      suggestion = { enabled = true }
+    },
+  },
+
   -- Blocks
   -- {
   --   "HampusHauffman/block.nvim",
@@ -171,6 +179,7 @@ return {
         dashboard.button("2", "📦" .. " job-preferences-backend", "<cmd> cd ~/Developer/job-preferences-backend <cr><cmd> Neotree <cr>"),
         dashboard.button("3", "📦" .. " profile-modules", "<cmd> cd ~/Developer/profile-modules <cr><cmd> Neotree <cr>"),
         dashboard.button("4", "📦" .. " new-work-one",    "<cmd> cd ~/Developer/xing-one <cr><cmd> Neotree <cr>"),
+        dashboard.button("5", "📦" .. " obsidian",    "<cmd> cd ~/obsidian <cr><cmd> Neotree <cr>"),
         dashboard.button("c", "⚙️ " .. " nvim config",     "<cmd> cd ~/.config/nvim/lua <cr><cmd> Neotree <cr>"),
         dashboard.button("l", "💤" .. " Lazy",            "<cmd> Lazy <cr>"),
         dashboard.button("q", "👋" .. " Quit",            "<cmd> qa <cr>"),

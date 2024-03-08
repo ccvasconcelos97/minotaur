@@ -2,17 +2,15 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
--- Remove default keymappings
-vim.keymap.del("n", "<leader>/")
-
 -- Toggle comments
-vim.keymap.set("n", "<leader>/", function()
+vim.keymap.set("n", "<leader>3", function()
   require("Comment.api").toggle.linewise.current()
 end, { desc = "Toggle comment" })
 
+-- Toggle comments in visual mode
 vim.keymap.set(
   "v",
-  "<leader>/",
+  "<leader>3",
   "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
   { desc = "Toggle comment" }
 )
@@ -55,15 +53,32 @@ vim.keymap.set("n", "<leader>fw", "<cmd> Telescope live_grep <CR>", { desc = "Li
 vim.keymap.set("n", "<leader>m", "<cmd>CellularAutomaton make_it_rain<CR>", { desc = "Make it rain" })
 
 -- Telescope copy
-vim.keymap.set('v', '<leader>y', function()
+vim.keymap.set('v', '<leader>fy', function()
   vim.api.nvim_input('y')
   vim.api.nvim_input('<cmd> Telescope live_grep <CR>')
   vim.api.nvim_input('<c-r>')
   vim.api.nvim_input('0')
 end, { desc = 'Telescope yank' })
 
-vim.keymap.set('n', '<leader>y', function()
+vim.keymap.set('n', '<leader>fy', function()
   vim.api.nvim_input('<cmd> Telescope live_grep <CR>')
   vim.api.nvim_input('<c-r>')
   vim.api.nvim_input('0')
 end, { desc = 'Telescope yank' })
+
+-- Open spec file from source file and vice versa
+vim.keymap.set("n", "<leader>r", function()
+    local current_file = vim.fn.expand('%:p')
+    local corresponding_file
+
+    -- Detect if it's a source or test file
+    if current_file:match('_spec%.') then
+        corresponding_file = current_file:gsub('spec/', 'app/'):gsub('spec/lib/', 'lib/'):gsub('_spec%.', '.')
+    else
+        corresponding_file = current_file:gsub('app/', 'spec/'):gsub('lib/', 'spec/lib/'):gsub('%.%w+$', '_spec%0')
+    end
+
+    vim.cmd('edit ' .. corresponding_file)
+end, { desc = "Open spec from source file. viceversa" })
+
+
