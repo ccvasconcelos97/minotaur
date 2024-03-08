@@ -44,13 +44,13 @@ vim.keymap.set("n", "<leader><Down>", function()
 end, { desc = "Close Buffer" })
 
 -- Autosave
-vim.keymap.set("n", "<leader>n", vim.cmd.ASToggle, { desc = "Autosave" })
+vim.keymap.set("n", "<leader>ma", vim.cmd.ASToggle, { desc = "Autosave" })
+
+-- Fun trick
+vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>", { desc = "Make it rain" })
 
 -- Find all words
 vim.keymap.set("n", "<leader>fw", "<cmd> Telescope live_grep <CR>", { desc = "Live grep" })
-
--- Fun trick
-vim.keymap.set("n", "<leader>m", "<cmd>CellularAutomaton make_it_rain<CR>", { desc = "Make it rain" })
 
 -- Telescope copy
 vim.keymap.set('v', '<leader>fy', function()
@@ -67,18 +67,33 @@ vim.keymap.set('n', '<leader>fy', function()
 end, { desc = 'Telescope yank' })
 
 -- Open spec file from source file and vice versa
-vim.keymap.set("n", "<leader>r", function()
-    local current_file = vim.fn.expand('%:p')
-    local corresponding_file
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'ruby',
+  callback = function()
+    vim.keymap.set("n", "<leader>r", function()
+      local current_file = vim.fn.expand('%:p')
+      local corresponding_file
 
-    -- Detect if it's a source or test file
-    if current_file:match('_spec%.') then
-        corresponding_file = current_file:gsub('spec/', 'app/'):gsub('spec/lib/', 'lib/'):gsub('_spec%.', '.')
-    else
-        corresponding_file = current_file:gsub('app/', 'spec/'):gsub('lib/', 'spec/lib/'):gsub('%.%w+$', '_spec%0')
-    end
+      -- Detect if it's a source or test file
+      if current_file:match('_spec%.') then
+          corresponding_file = current_file:gsub('spec/', 'app/'):gsub('spec/lib/', 'lib/'):gsub('_spec%.', '.')
+      else
+          corresponding_file = current_file:gsub('app/', 'spec/'):gsub('lib/', 'spec/lib/'):gsub('%.%w+$', '_spec%0')
+      end
 
-    vim.cmd('edit ' .. corresponding_file)
-end, { desc = "Open spec from source file. viceversa" })
+      vim.cmd('edit ' .. corresponding_file)
+    end, { desc = "Open spec from source file. viceversa" })
+  end
+})
 
+-- Toggle relative line numbers
+vim.keymap.set("n", "<leader>t", function()
+  if vim.wo.relativenumber then
+    vim.wo.relativenumber = false
+    vim.wo.number = true
+  else
+    vim.wo.relativenumber = true
+    vim.wo.number = false
+  end
+end, { desc = "Toggle line numbers" })
 

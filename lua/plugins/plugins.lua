@@ -21,6 +21,16 @@ return {
     },
   },
 
+  -- Add my whichkey group descs
+  {
+    "folke/which-key.nvim",
+    opts = {
+      defaults = {
+        ["<leader>m"] = { name = "+misc" },
+      },
+    },
+  },
+
   -- Treesitter
   {
     "nvim-treesitter/nvim-treesitter",
