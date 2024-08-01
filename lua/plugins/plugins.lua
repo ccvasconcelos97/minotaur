@@ -1,5 +1,31 @@
 return {
 
+  -- nvchad themes
+  -- {
+  --   "aikow/base.nvim",
+  --   opts = {},
+  -- },
+
+  -- move lines with alt + arrow keys
+  {
+    "echasnovski/mini.move",
+    config = function()
+      require("mini.move").setup({
+        mappings = {
+          left = "<A-left>",
+          right = "<A-right>",
+          down = "<A-down>",
+          up = "<A-up>",
+
+          line_left = "<A-left>",
+          line_right = "<A-right>",
+          line_down = "<A-down>",
+          line_up = "<A-up>",
+        },
+      })
+    end,
+  },
+
   -- Make neo-tree hidden files visible
   {
     "nvim-neo-tree/neo-tree.nvim",
@@ -32,14 +58,14 @@ return {
   },
 
   -- Treesitter
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed, {
-        "graphql",
-      })
-    end,
-  },
+  -- {
+  --   "nvim-treesitter/nvim-treesitter",
+  --   opts = function(_, opts)
+  --     vim.list_extend(opts.ensure_installed, {
+  --       "graphql",
+  --     })
+  --   end,
+  -- },
 
   -- Copilot
   {
@@ -186,10 +212,12 @@ return {
       -- stylua: ignore
       dashboard.section.buttons.val = {
         dashboard.button("1", "📦" .. " profile-backend", "<cmd> cd ~/Developer/profile-backend <cr><cmd> Neotree <cr>"),
-        dashboard.button("2", "📦" .. " job-preferences-backend", "<cmd> cd ~/Developer/job-preferences-backend <cr><cmd> Neotree <cr>"),
-        dashboard.button("3", "📦" .. " profile-modules", "<cmd> cd ~/Developer/profile-modules <cr><cmd> Neotree <cr>"),
-        dashboard.button("4", "📦" .. " new-work-one",    "<cmd> cd ~/Developer/xing-one <cr><cmd> Neotree <cr>"),
-        dashboard.button("5", "📦" .. " obsidian",    "<cmd> cd ~/obsidian <cr><cmd> Neotree <cr>"),
+        dashboard.button("2", "📦" .. " cv-upload", "<cmd> cd ~/Developer/cv-upload <cr><cmd> Neotree <cr>"),
+        dashboard.button("3", "📦" .. " job-preferences-backend", "<cmd> cd ~/Developer/job-preferences-backend <cr><cmd> Neotree <cr>"),
+        dashboard.button("4", "📦" .. " profile-modules", "<cmd> cd ~/Developer/profile-modules <cr><cmd> Neotree <cr>"),
+        dashboard.button("5", "📦" .. " profile",    "<cmd> cd ~/Developer/profile <cr><cmd> Neotree <cr>"),
+        dashboard.button("6", "📦" .. " new-work-one",    "<cmd> cd ~/Developer/xing-one <cr><cmd> Neotree <cr>"),
+        dashboard.button("o", "📓" .. " obsidian",    "<cmd> cd ~/obsidian <cr><cmd> Neotree <cr>"),
         dashboard.button("c", "⚙️ " .. " nvim config",     "<cmd> cd ~/.config/nvim/lua <cr><cmd> Neotree <cr>"),
         dashboard.button("l", "💤" .. " Lazy",            "<cmd> Lazy <cr>"),
         dashboard.button("q", "👋" .. " Quit",            "<cmd> qa <cr>"),
